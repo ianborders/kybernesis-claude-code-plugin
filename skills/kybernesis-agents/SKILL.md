@@ -85,10 +85,16 @@ curl -s -X POST "https://api.kybernesis.ai/v1/agents/{AGENT_ID}/chat" \
 
 ## Workflow
 
-1. **If user asks to talk to an agent by name**: List agents first, find the matching agent ID, then chat
-2. **If user says "list my agents"**: Call the list endpoint and show the results
+1. **If user asks to talk to an agent by name**:
+   - FIRST: Call the list endpoint to get all agents with their IDs
+   - SECOND: Find the agent with the matching name (case-insensitive)
+   - THIRD: Use the agent's `id` field (NOT the name) to call the chat endpoint
+   - Example: If user says "talk to Samantha" and Samantha has id "p1788...", use that ID in the chat URL
+2. **If user says "list my agents"**: Call the list endpoint and show the results in a table
 3. **If continuing a conversation**: Use the stored conversationId from previous interactions
 4. **Always show the agent's response** to the user after receiving it
+
+**CRITICAL**: The chat endpoint requires the agent's `id` field, NOT the agent's name. Always get the ID from the list response first.
 
 ## Important Notes
 
