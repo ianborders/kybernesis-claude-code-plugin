@@ -1,6 +1,7 @@
 ---
 name: kybernesis-agents
 description: Chat with your personalized Kybernesis AI agents. Use when user wants to list agents, talk to an agent by name, or interact with their Kybernesis workspace.
+allowed-tools: Bash(curl -s "https://api.kybernesis.ai:*), Bash(curl -s -X POST "https://api.kybernesis.ai:*)
 ---
 
 # Kybernesis Agents
