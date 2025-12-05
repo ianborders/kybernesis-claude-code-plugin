@@ -1,3 +1,8 @@
+---
+name: kybernesis-agents
+description: Chat with your personalized Kybernesis AI agents. Use when user wants to list agents, talk to an agent by name, or interact with their Kybernesis workspace.
+---
+
 # Kybernesis Agents
 
 Connect to the user's personalized AI agents powered by Kybernesis. Each agent has its own personality, expertise, and access to workspace memories.
