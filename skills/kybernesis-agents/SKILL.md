@@ -97,9 +97,23 @@ curl -s -X POST "https://api.kybernesis.ai/v1/agents/{AGENT_ID}/chat" \
 
 **CRITICAL**: The chat endpoint requires the agent's `id` field, NOT the agent's name. Always get the ID from the list response first.
 
+## Saving to Workspace Memory
+
+Agents with write permissions can save information to the workspace memory. Users can trigger this with natural language:
+
+- "Save this to memory"
+- "Add this to my workspace"
+- "Remember this for later"
+- "Store this information"
+
+The agent will automatically create a titled, tagged memory that becomes searchable in the workspace. The saved memory will appear in the response's `memoryBlocksUpdated` field.
+
+**Example**: If the user says "Save our discussion about the Q4 marketing plan to memory", the agent will use its `archival_insert` tool to save a structured memory with an appropriate title and tags.
+
 ## Important Notes
 
 - Each agent has access to the user's workspace memories and can search them contextually
 - Agents remember their conversations (use conversationId to maintain context)
 - The `memoriesUsed` field shows how many workspace memories influenced the response
 - Agents can update their own memory blocks during conversation
+- Agents with write permissions can save new memories to the workspace via natural language
